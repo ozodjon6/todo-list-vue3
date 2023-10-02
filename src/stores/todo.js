@@ -10,17 +10,30 @@ export const useTodoStore = defineStore('todo', {
                 id : Date.now(),
                 ...todo,
                 createdDate: new Date().toLocaleString(),
-                lastModifiedDate: new Date().toLocaleString(),
             })
+            this.saveTasksToLocalStorage()
         },
         updateTodo(updatedTodo) {
             const index = this.todos.findIndex((todo) => todo.id === updatedTodo.id)
             if (index !== -1) {
                 this.todos[index] = { ...updatedTodo , lastModifiedDate : new Date().toLocaleString() }
             }
+            this.saveTasksToLocalStorage()
         },
         deleteTodo(todoId) {
             this.todos = this.todos.filter((todo) => todo.id !== todoId)
+            this.saveTasksToLocalStorage()
+        },
+
+        initializeStore() {
+            const savedTasks = sessionStorage.getItem('todos');
+            if (savedTasks) {
+                this.todos = JSON.parse(savedTasks)
+            }
+        },
+
+        saveTasksToLocalStorage() {
+            sessionStorage.setItem('todos', JSON.stringify(this.todos))
         }
     },
     getters: {
@@ -46,10 +59,6 @@ export const useTodoStore = defineStore('todo', {
                     key: 'createdDate',
                     label: 'Created Date'
                 },
-                {
-                    key: 'lastModifiedDate',
-                    label: 'Last Modified Date'
-                }
             ]
         }
     }
