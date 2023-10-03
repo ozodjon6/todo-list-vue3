@@ -16,7 +16,7 @@ export const useTodoStore = defineStore('todo', {
         updateTodo(updatedTodo) {
             const index = this.todos.findIndex((todo) => todo.id === updatedTodo.id)
             if (index !== -1) {
-                this.todos[index] = { ...updatedTodo , lastModifiedDate : new Date().toLocaleString() }
+                this.todos[index] = { ...updatedTodo }
             }
             this.saveTasksToLocalStorage()
         },

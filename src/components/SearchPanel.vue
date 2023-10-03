@@ -10,7 +10,7 @@
 
 <script setup>
 
-import {ref, defineProps} from "vue";
+import {ref} from "vue";
 const emit = defineEmits(['search'])
 
 const searchQuery = ref('')
