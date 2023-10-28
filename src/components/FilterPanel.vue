@@ -1,15 +1,15 @@
 <template>
-  <div class="">
+  <div class="flex">
     <button
-        class="p-3 border rounded-tl-md rounded-bl-md"
+        class="p-3 border rounded-tl-md rounded-bl-md w-full"
         :class="{active: selectedFilter === 'all'}"
         @click="setFilter('all')">All</button>
     <button
-        class="p-3 border-t border-b"
+        class="p-3 border-t border-b w-full"
         :class="{active: selectedFilter === 'completed'}"
         @click="setFilter('completed')">Completed</button>
     <button
-        class="p-3 border rounded-tr-md rounded-br-md"
+        class="p-3 border rounded-tr-md rounded-br-md w-full"
         :class="{active: selectedFilter === 'incompleted'}"
         @click="setFilter('incompleted')">Incompleted</button>
   </div>

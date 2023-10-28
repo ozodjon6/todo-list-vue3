@@ -15,7 +15,7 @@
         Add Task
       </button>
     </div>
-    <div class="overflow-x-auto">
+    <div class="overflow-x-auto px-4">
       <Datatable :rows="rows" :columns="columns" @edit="openEditModal" @delete="deleteTodo"  />
     </div>
   </div>

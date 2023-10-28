@@ -1,6 +1,6 @@
 <template>
-  <div class="flex items-center justify-between my-8 px-4">
-    <SearchPanel @search="handleSearch" />
+  <div class="sm:flex items-center justify-between my-8">
+    <SearchPanel @search="handleSearch" class="mb-4 sm:mb-0 w-full sm:w-1/2" />
     <FilterPanel v-model="selectedFilter" />
   </div>
   <table class="w-full text-left text-sm text-gray-500 dark:text-gray-400">
@@ -50,7 +50,7 @@
           v-if="!searchQuery"
           class="flex items-center justify-center w-full my-8"
           :class="{active: !filteredTasks.length}">
-        <td class="p-4 text-center text-2xl w-full">There are no tasks at the moment</td>
+        <td class="p-4 text-center text-xl sm:text-2xl w-full">There are no tasks at the moment</td>
       </tr>
       <tr
           v-else
